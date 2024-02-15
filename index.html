@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Names</title>
+    <style>
+        body{
+            background-color: goldenrod;
+        }
+        button{
+            background-color: blue;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>Names : <span id="displayedName"></span></h1>
+    <button onclick="showPrevious()">Previous</button>
+    <button onclick="showNext()">Next</button>
+
+    <script>
+        const names = ["Aarav", "Sanya", "Vikram", "Neha", "Rohan", "Priya", "Amit", "Meera", "Rajiv", "Ananya"];
+        let currentIndex = 0;
+        const displayedNameElement = document.getElementById('displayedName');
+
+        function displayCurrentName() {
+            displayedNameElement.textContent = names[currentIndex];
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % names.length;
+            displayCurrentName();
+        }
+
+        function showPrevious() {
+            currentIndex = (currentIndex - 1 + names.length) % names.length;
+            displayCurrentName();
+        }
+
+        window.onload = displayCurrentName;
+    </script>
+</body>
+</html>
